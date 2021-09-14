@@ -1,0 +1,72 @@
+# Trigger
+trigger: none
+
+stages:
+  - stage: build_functionapp
+    displayName: Build functionapp
+    condition: always()
+    pool:
+          vmImage: 'VS2017-Win2016'
+    jobs:
+    - job: Build_FunctionApp
+      displayName: Build Function App
+
+      steps:
+      - script: |
+          dotnet restore
+          dotnet build --configuration Release
+
+      - task: DotNetCoreCLI@2
+        displayName: Publish Project
+        inputs:
+          command: publish
+          arguments: '--configuration Release --output publish_output'
+          projects: '*.csproj'
+          publishWebProjects: false
+          modifyOutputPath: false
+          zipAfterPublish: false
+
+      - task: ArchiveFiles@2
+        displayName: "Archive files"
+        inputs:
+          rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output"
+          includeRootFolder: false
+          archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+
+      - task: PublishBuildArtifacts@1
+        displayName: Publish Build Artifact ZIP
+        inputs:
+          PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+          artifactName: 'drop'
+
+  - stage: Deploy_Functionapp
+    displayName: Deploy functionapp
+    condition: always()
+    pool:
+        vmImage: 'VS2017-Win2016'
+    jobs:
+    - job: Deploy_FunctionApp
+      displayName: Deploy Function App
+      
+      steps:
+      - task: DownloadBuildArtifacts@0
+        displayName: Download ZIP
+        inputs:
+          buildType: 'current'
+          downloadType: 'single'
+          artifactName: 'drop'
+          downloadPath: '$(System.ArtifactsDirectory)'
+
+      - task: AzureFunctionApp@1
+        displayName: Deploy Az Function
+        inputs:
+          azureSubscription: 'funapp-sc'
+          appType: 'functionApp'
+          appName: 'funappsample'
+          package: '$(System.ArtifactsDirectory)/**/*.zip'
+          deploymentMethod: 'auto'
+          #Uncomment the next lines to deploy to a deployment slot
+          #deployToSlotOrASE: true
+          #resourceGroupName: 'funapp-rg'
+          #slotName: 'staging'
+
