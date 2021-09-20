@@ -1,11 +1,13 @@
 # Azure Function
 This is a sample project for C# based Azure function with YAML based CICD.
 
-### Prerequisites
+## Prerequisites
+### Local Development
 - VS Code
 - .Net Core SDK
 - Azure CLI
 - Azure Functions Core Tools
 
-## CI/CD
-functionapp-build-deploy.yaml
+### CI/CD
+- Azure Devops Organization
+- Azure Subscription
