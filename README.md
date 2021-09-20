@@ -3,8 +3,8 @@ This is a sample project for C# based Azure function with YAML based CICD which 
 - JSON request parsing and desialization
 - Http Request validation through fluent validation
 - Service call using Httpclient
-- ARM REST API Call through Function's System assigned managed identity
-- KeyVault interaction
+- ARM REST API call through function's system assigned managed identity
+- KeyVault interaction through system assigned managed identity
 - Timer trigger based custom health check
 - Swagger Documentation
 - Azure DevOps interaction through PAT token 
