@@ -1,4 +1,4 @@
-# Azure Function
+# Project Detail
 This is a sample project for C# based Azure function with YAML based CICD.
 
 ## Prerequisites
