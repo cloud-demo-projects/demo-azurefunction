@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/bahrinipun/demo-azurefunction/_apis/build/status/azurefunction-cicd?branchName=main)](https://dev.azure.com/bahrinipun/demo-azurefunction/_build/latest?definitionId=53&branchName=main)
+
 # Project Detail
 This is a sample project for C# based Azure function with YAML based CICD which contains-
 - JSON request parsing and desialization
