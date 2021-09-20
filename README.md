@@ -21,3 +21,4 @@ This is a sample project for C# based Azure function with YAML based CICD which 
 - Azure Devops Organization
 - Azure Subscription
 - Azure FunctionApp
+- Service Principle with appropriate permissions 
