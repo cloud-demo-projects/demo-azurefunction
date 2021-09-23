@@ -14,6 +14,8 @@ This is a sample project for C# based Azure function which contains-
 - Azure DevOps pipeline as CICD 
 
 ## Prerequisites
+Prerequisites are listed down for local development and CICD.
+
 ### Local Development
 - VS Code
 - .Net Core SDK
