@@ -2,9 +2,10 @@
 
 # Develop and Deploy C# based Azure Function with Azure DevOps
 This is a sample project for C# based Azure function which contains-
+- Dependency Injection
 - JSON request parsing and desialization
 - Http Request validation through fluent validation
-- Service call using Httpclient
+- Service calls using Httpclient
 - ARM REST API call through function's system assigned managed identity
 - KeyVault interaction through system assigned managed identity
 - Timer trigger based custom health check
