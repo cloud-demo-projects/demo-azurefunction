@@ -10,7 +10,8 @@ This is a sample project for C# based Azure function which contains-
 - KeyVault interaction through system assigned managed identity
 - Timer trigger based custom health check
 - Swagger Documentation
-- Azure DevOps interaction through PAT token 
+- Azure DevOps interaction through PAT token
+- Azure DevOps pipeline as CICD 
 
 ## Prerequisites
 ### Local Development
