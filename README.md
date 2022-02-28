@@ -1,7 +1,7 @@
 [![Build Status](https://dev.azure.com/bahrinipun/demo-azurefunction/_apis/build/status/azurefunction-cicd?branchName=main)](https://dev.azure.com/bahrinipun/demo-azurefunction/_build/latest?definitionId=53&branchName=main)
 
 # Develop and Deploy C# based Azure Function with Azure DevOps
-This is a sample project for C# based Azure function which contains-
+This is a sample project for C# based Azure function which intends to demonstrate-
 - Dependency Injection
 - JSON request parsing and desialization
 - Http Request validation through fluent validation
